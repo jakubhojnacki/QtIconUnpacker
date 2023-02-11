@@ -34,7 +34,5 @@ class Version : public QObject {
     public: bool operator >= (const Version& pVersion) const;
 
     public: int compare(const Version& pVersion) const;
-
-    private: static int compare(const int pValue1, const int pValue2);
 };
 

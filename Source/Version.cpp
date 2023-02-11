@@ -1,3 +1,4 @@
+#include "Int.hpp"
 #include "Version.hpp"
 
 Version::Version() {
@@ -51,21 +52,12 @@ bool Version::operator >= (const Version& pVersion) const {
 }
 
 int Version::compare(const Version& pVersion) const {
-    int result = Version::compare(this->major(), pVersion.major());
+    int result { (Int { this->major() }).compareTo(pVersion.major()) };
     if (result == 0)
-        result = Version::compare(this->minor(), pVersion.minor());
+        result = (Int { this->minor() }).compareTo(pVersion.minor());
     if (result == 0)
-        result = Version::compare(this->hotfix(), pVersion.hotfix());
+        result = (Int { this->hotfix() }).compareTo(pVersion.hotfix());
     if (result == 0)
-        result = Version::compare(this->build(), pVersion.build());
+        result = (Int { this->build() }).compareTo(pVersion.build());
     return result;
-}
-
-int Version::compare(const int pValue1, const int pValue2) {
-    if (pValue1 > pValue2)
-        return 1;
-    else if (pValue1 < pValue2)
-        return -1;
-    else
-        return 0;
 }
