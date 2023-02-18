@@ -10,6 +10,8 @@ CONFIG += c++17
 
 SOURCES += \
     Int.cpp \
+    MainController.cpp \
+    MainModel.cpp \
     Manifest.cpp \
     Version.cpp \
     main.cpp \
@@ -17,6 +19,8 @@ SOURCES += \
 
 HEADERS += \
     Int.hpp \
+    MainController.hpp \
+    MainModel.hpp \
     MainWindow.hpp \
     Manifest.hpp \
     Version.hpp

@@ -1,38 +1,39 @@
 #pragma once
 
-#include <QObject>
+class Version {
+    public:
+        Version();
+        Version(const int pMajor, const int pMinor);
+        Version(const int pMajor, const int pMinor, const int pHotfix);
+        Version(const int pMajor, const int pMinor, const int pHotfix, const int pBuild);
 
-class Version : public QObject {
-    Q_OBJECT
+    private:
+        int mMajor { 0 };
+        int mMinor { 0 };
+        int mHotfix { 0 };
+        int mBuild { 0 };
 
-    public: Version();
-    public: Version(const int pMajor, const int pMinor);
-    public: Version(const int pMajor, const int pMinor, const int pHotfix);
-    public: Version(const int pMajor, const int pMinor, const int pHotfix, const int pBuild);
+    public:
+        int major() const;
+        int minor() const;
+        int hotfix() const;
+        int build() const;
 
-    private: int mMajor { 0 };
-    public: int major() const;
-    public: void setMajor(const int pMajor);
+    public:
+        void setMajor(const int pMajor);
+        void setMinor(const int pMinor);
+        void setHotfix(const int pHotfix);
+        void setBuild(const int pBuild);
 
-    private: int mMinor { 0 };
-    public: int minor() const;
-    public: void setMinor(const int pMinor);
+    public:
+        bool operator == (const Version& pVersion) const;
+        bool operator != (const Version& pVersion) const;
+        bool operator < (const Version& pVersion) const;
+        bool operator <= (const Version& pVersion) const;
+        bool operator > (const Version& pVersion) const;
+        bool operator >= (const Version& pVersion) const;
 
-    private: int mHotfix { 0 };
-    public: int hotfix() const;
-    public: void setHotfix(const int pHotfix);
-
-    private: int mBuild { 0 };
-    public: int build() const;
-    public: void setBuild(const int pBuild);
-
-    public: bool operator == (const Version& pVersion) const;
-    public: bool operator != (const Version& pVersion) const;
-    public: bool operator < (const Version& pVersion) const;
-    public: bool operator <= (const Version& pVersion) const;
-    public: bool operator > (const Version& pVersion) const;
-    public: bool operator >= (const Version& pVersion) const;
-
-    public: int compare(const Version& pVersion) const;
+    public:
+        int compare(const Version& pVersion) const;
 };
 
