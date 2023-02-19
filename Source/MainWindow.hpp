@@ -13,8 +13,10 @@ class MainWindow : public QMainWindow {
 
     public:
         MainWindow(QWidget* pParent = nullptr);
+        MainWindow(const MainController* pController, QWidget* pParent = nullptr);
         ~MainWindow();
 
     private:
         Ui::MainWindow* ui;
+        const MainController* mController;
 };

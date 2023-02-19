@@ -1,6 +1,6 @@
 #include "MainModel.hpp"
 
-MainModel::MainModel() {
+MainModel::MainModel(QObject* pParent) : QObject { pParent } {
 }
 
 const QString& MainModel::input() const {

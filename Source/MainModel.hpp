@@ -7,7 +7,7 @@ class MainModel : public QObject {
     Q_OBJECT
 
     public:
-        MainModel();
+        MainModel(QObject* pParent = nullptr);
 
     private:
         QString mInput { "" };

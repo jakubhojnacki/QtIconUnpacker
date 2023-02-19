@@ -1,16 +1,7 @@
-#include "MainWindow.hpp"
-
-#include <QApplication>
+#include "Application.hpp"
 
 int main(int pArgc, char* pArgv[]) {
-    QApplication application { pArgc, pArgv };
-
-    MainModel model { };
-    MainWindow window { };
-
-    mainWindow.show();
-
-    MainController controller { model, window };
-
+    Application application { pArgc, pArgv };
+    application.initUI(); //TODO >>> Do we need it here? Can we move it to the constructor?
     return application.exec();
 }
